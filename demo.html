@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Smallcontrol for Reveal.js</title>
+    <meta name="description" content="">
+    <meta name="author" content="Martinomagnifico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../dist/reset.css">
+    <link rel="stylesheet" href="../dist/reveal.css">
+    <link rel="stylesheet" href="../dist/theme/black.css">
+    <link rel="stylesheet" href="css/demo.css">
+</head>
+
+<body>
+    <div class="reveal smallcontrols">
+        <div class="slides">
+            <section class="center">
+                <h1>Smallcontrol</h1>
+                <h3>for Reveal.js</h3>
+            </section>
+            <section class="center">
+                <section class="center">
+                    <h2>What does it do?</h2>
+                </section>
+                <section class="center">
+                    <p>Smallcontrol makes the controls smaller</p>
+                    <p>on the vertical control elements</p>
+                </section>
+                <section class="center">
+                    <p>Smallcontrol makes the controls smaller</p>
+                    <p>on the vertical control elements</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Options</h2>
+                    <ol>
+                        <li>smalltouch</li>
+                        <li>thisdeckonly</li>
+                    </ol>
+                </section>
+                <section>
+                    <h4>Setting the <code>smalltouch</code> option</h4>
+                    <p>The <code>smalltouch</code> option defines if the controls should also be small on touch devices. It is set to <code>false</code> by default. </p>
+                    <p class="small">You can change like this: </p>
+                    <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+	//...
+	smallcontrol: {
+		smalltouch: true
+	},
+	plugins: [ Smallcontrol ]
+})
+</code></pre>
+                </section>
+                <section>
+                    <h4>Setting the <code>thisdeckonly</code> option</h4>
+                    <p>In embedded presentations, the <code>thisdeckonly</code> option defines if the small styling should be set on the current deck only. It is set to <code>true</code> by default. </p>
+                    <p class="small">You can change like this: </p>
+                    <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+	//...
+	smallcontrol: {
+		thisdeckonly: false
+	},
+	plugins: [ Smallcontrol ]
+})
+</code></pre>
+                </section>
+                <section class="center">
+                    <h4>That's it!</h4>
+                </section>
+            </section>
+        </div>
+    </div>
+    <script src="../dist/reveal.js"></script>
+    <script src="plugin/smallcontrol/smallcontrol.js"></script>
+    <script>
+        Reveal.initialize({
+            transition: "convex",
+            smallcontrol: {
+                smalltouch: false,
+                thisdeckonly: true
+            },
+            plugins: [
+                Smallcontrol
+            ]
+        });
+    </script>
+</body>
+
+</html>

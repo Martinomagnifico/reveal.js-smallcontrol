@@ -1,0 +1,71 @@
+.backgrounds {
+  background: #1a1626; }
+
+.slides {
+  opacity: 0;
+  -webkit-transition: opacity .5s ease;
+  -o-transition: opacity .5s ease;
+  transition: opacity .5s ease; }
+
+.reveal.ready .slides {
+  opacity: 1; }
+
+.small {
+  font-size: .7em; }
+
+.smallitalic {
+  font-size: .7em;
+  font-style: italic; }
+
+.backgrounds {
+  background: #1a1626; }
+
+.reveal code {
+  line-height: 1.5;
+  font-size: .66em; }
+
+.reveal pre, code {
+  background: #222D2F;
+  color: #ddd;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem; }
+
+.reveal .hljs {
+  background: #222D2F; }
+
+code {
+  background: #2c3235;
+  background: #222D2F;
+  color: #ddd;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem; }
+
+.reveal pre code {
+  max-height: 480px; }
+
+a.github-corner {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: clamp(50px, 8vmax, 80px);
+  line-height: 0;
+  color: var(--r-main-color);
+  opacity: 0.5;
+  -webkit-transition: opacity .3s;
+  -o-transition: opacity .3s;
+  transition: opacity .3s; }
+  .has-dark-background a.github-corner {
+    color: white; }
+  .has-light-background a.github-corner {
+    color: black; }
+  a.github-corner.bottom {
+    top: auto;
+    bottom: 3px; }
+
+a.github-corner:hover {
+  color: var(--r-main-color);
+  opacity: 1; }
+  .has-dark-background a.github-corner:hover {
+    color: white; }
+  .has-light-background a.github-corner:hover {
+    color: black; }

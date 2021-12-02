@@ -4,7 +4,7 @@
 
 A plugin for [Reveal.js](https://revealjs.com) 4 that makes the vertical controls significantly smaller. 
 
-[![Screenshot](https://martinomagnifico.github.io/reveal.js-smallcontrol/screenshot.png)](https://martinomagnifico.github.io/reveal.js-smallcontrol/demo.html)
+[![Screenshot](https://martinomagnifico.github.io/reveal.js-smallcontrol/screenshot1.png)](https://martinomagnifico.github.io/reveal.js-smallcontrol/demo.html)
 
 Sometimes the standard Reveal controls are just a bit too large. It is of course possible to just go and change the styling in the Reveal source files, but if you're not into CSS, that can be quite difficult. This plugin makes it easy. 
 

@@ -68,13 +68,12 @@ If you're using ES modules, you can add it like this:
 
 ## Configuration
 
-There are a few options that you can change from the Reveal.js options. The values below are default and do not need to be set if not changed.
+There is one option that you can change from the Reveal.js options. The value below is default and does not need to be set if not changed.
 
 ```javascript
 Reveal.initialize({
 	// ...
 	smallcontrol: {
-		smalltouch: false,
 		thisdeckonly: true
 	},
 	plugins: [ Smallcontrol ]
@@ -83,7 +82,6 @@ Reveal.initialize({
 });
 ```
 
-* **`smalltouch`**: By default, Smallcontrol is turned off on touch devices, because these smaller controls seem harder to click on. You can set the value to `true` if you it on touch devices as well. In reality, the click area is just as large as the horizontal controls.
 * **`thisdeckonly `**: In embedded presentations, the `thisdeckonly` option defines if the small styling should be set on the current deck only. It is set to `true` by default, but you can set it to `false`. It will then show smaller controls on all embedded decks on the same page.
  
 

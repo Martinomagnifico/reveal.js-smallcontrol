@@ -30,7 +30,7 @@ This plugin is published to, and can be installed from, npm.
 ```console
 npm install reveal.js-smallcontrol
 ```
-The Smallcontrol plugin folder can then be referenced from `node_modules/reveal.js-smallcontrol/plugin/smallcontrol `
+The Smallcontrol plugin folder can then be referenced from `node_modules/reveal.js-smallcontrol/plugin/smallcontrol`
 
 
 ## Setup

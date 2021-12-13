@@ -1,6 +1,6 @@
 {
     "name": "reveal.js-smallcontrol",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A plugin for Reveal.js that makes the vertical controls significantly smaller",
     "keywords": "reveal, reveal.js, controls, reveal-plugin, plugin",
     "homepage": "https://github.com/Martinomagnifico/reveal.js-smallcontrol",
@@ -9,7 +9,7 @@
         "url": "https://github.com/Martinomagnifico/reveal.js-smallcontrol.git"
     },
     "peerDependencies": {
-        "reveal.js": "^4.0"
+        "reveal.js": "^4.2"
     },
     "author": "Martijn De Jongh",
     "license": "MIT, Copyright (C) 2021 Martijn De Jongh"

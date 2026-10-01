@@ -115,17 +115,17 @@ Load the Smallcontrol stylesheet after the one from Reveal. If you have your own
 
 ### Position
 
-Reveal has two versions of the controls. If a deck has no vertical slides, then you see a small row: a left arrow and a right arrow, low in the corner. If a deck has vertical slides, then you see a large cross. The up arrow is then high above the row, and the down arrow hangs below it.
+Reveal has two versions of the controls. If a deck has no vertical slides, then you see just a left and right arrow. If a deck does have vertical slides, then you see four arrows/chevrons. Like a big rotated rectangle.
 
-Smallcontrol keeps the row. If a deck has vertical slides, then you get the same row as Reveal's, in the same place, with a small up arrow and a small down arrow in the middle. The left arrow moves out a bit, to make room for them. If a deck has only vertical slides, then the small up and down arrows are where the right arrow would be. If a deck has no vertical slides, then Smallcontrol does not change the position.
+Smallcontrol only changes the version where there is any vertical navigation, but its position will be more like if it did not have vertical navigation. 
 
-You do not need to move the controls yourself: all the space that Smallcontrol saves is above them. If you want them further away from the edge, then change Reveal's own `--r-controls-spacing`. If you use `controlsLayout: 'edges'`, then the arrows stay where Reveal puts them. Only the up and down arrows get smaller.
+You do not need to move the controls yourself: that goes automatically. If you want to change it, then change Reveal's own `--r-controls-spacing`. If you use `controlsLayout: 'edges'`, then the arrows stay where Reveal puts them. Only the up and down arrows get smaller.
 
 If an arrow appears, then Reveal slides it in from a little distance. The small arrows slide in from closer by: `0.5em`. You can change that distance with `--smallcontrol-nudge`.
 
 ### Scaling
 
-Reveal always shows the controls at the same size, no matter how large the screen is. On a big screen they end up small and far away.
+Reveal always shows the controls at the same size, no matter how large the screen is. On a big screen they might end up small and far away.
 
 With `autoscale`, you can let Smallcontrol grow along with the slides. The controls never get smaller than Reveal's own controls. They grow up to twice their size, or up to whatever you set as a maximum with `maxscale`.
 

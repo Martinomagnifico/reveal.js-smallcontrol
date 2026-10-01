@@ -1,0 +1,81 @@
+section.center
+	h1 Smallcontrol
+	h3 for Reveal.js
+
+section.center
+	section.center
+		h2 What does it do?
+
+	section.center
+		p Smallcontrol makes the controls (the navigation arrows in the corner there) smaller. Just the vertical ones.
+
+	section.center
+		p Like this
+
+section.center(data-background-color="#fff")
+	h2 On light slides too
+	p As you can see...
+
+section
+	section
+		h2 Options
+		ul
+			li color
+			li inversecolor
+			li autoscale
+			li maxscale
+			li cssautoload
+			li csspath
+
+	section
+		h3 Colors in Reveal
+		p.small Standard Reveal themes give the arrows the same color that it uses for links. In this theme it is very blue.
+		p.small Reveal also defines what color the controls should be on slides where the user has set another background color: If that background color is very dark, the controls become white, and if it is very light, the controls become black.
+
+	section
+		h3 Colors in Smallcontrol
+		p.small Smallcontrol keeps the color your theme gives the arrows, the color of its links.
+		p.small Only on slides that contrast the theme does it do something different: there the arrows get the color of the text on that slide, instead of plain black or white, like Reveal normally does. For an example, see #[a(href="#/2") light slide] in this deck.
+
+	section
+		h3 Your own colors
+		p.small If you still want other colors, set them for regular slides and/or for slides that contrast the theme:
+
+		pre
+			code.hljs.javascript(data-line-numbers).
+				Reveal.initialize({
+					//...
+					smallcontrol: {
+						color: 'orange',
+						inversecolor: 'darkred'
+					},
+					plugins: [ Smallcontrol ]
+				})
+
+	section
+		h3 Scaling
+		p.small Reveal draws its controls at the same size, however large it draws the slides. On a big screen they end up small and far away.
+		p.small With #[code autoscale], they grow along with the slides, up to twice their size, or what you set with #[code maxscale]. This deck has it on: make the window larger to see it.
+
+		pre
+			code.hljs.javascript(data-line-numbers).
+				Reveal.initialize({
+					//...
+					smallcontrol: {
+						autoscale: true,
+						maxscale: 2
+					},
+					plugins: [ Smallcontrol ]
+				})
+
+	section
+		h3 The stylesheet
+		p.small Smallcontrol loads its own stylesheet. If you import it yourself, set #[code csspath: false], or point #[code csspath] at your own file.
+
+		pre
+			code.hljs.javascript(data-line-numbers).
+				import Smallcontrol from 'reveal.js-smallcontrol';
+				import 'reveal.js-smallcontrol/smallcontrol.css';
+
+	section.center
+		h4 That’s it!

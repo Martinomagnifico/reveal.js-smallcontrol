@@ -1,0 +1,139 @@
+// Smallcontrol only restyles a deck that carries the `smallcontrol` class, which the
+// plugin adds to the deck it is loaded in. Adding the class by hand works too, with
+// only the stylesheet loaded.
+//
+// The class sits inside `:where()`, so it adds nothing to the specificity: these
+// rules weigh the same as Reveal's own, win from them by coming later, and are just
+// as easy to override.
+$root: ".reveal:where(.smallcontrol)";
+
+$arrow-short: 1.1em;
+$arrow-short-thickness: 0.4em;
+$arrow-offset: 1.8em;
+$angle: 45deg;
+$angle-hover: 40deg;
+$angle-active: 36deg;
+// How far a small arrow slides as it appears or goes.
+$nudge: var(--smallcontrol-nudge, 0.5em);
+
+// Where the arrows go, in the ems Reveal draws them in. The row is Reveal's own, the
+// one it uses for a deck without vertical slides: the same height, and the right
+// arrow in the same place. With the vertical pair in it, the left arrow moves out to
+// the distance it has in Reveal's cross, so the pair has room, and the pair sits in
+// the middle, centred between the two arrows as they are drawn, which is not the
+// middle of their boxes. Its boxes then overlap the others' by 0.4em, as they always
+// have.
+$row-bottom: 1.4em;
+$left-right: 6.9em;
+$right-right: 0.5em;
+$pair-right: 3.7em;
+$up-bottom: 3.2em;
+$down-bottom: -0.4em;
+// With no row, the pair takes the column of the right arrow.
+$column-right: 0.15em;
+
+@mixin arrow-transform($angle) {
+	&:before {
+		transform: translateY(-50%) translateX($arrow-offset) rotate(-$angle);
+	}
+	&:after {
+		transform: translateY(-50%) translateX($arrow-offset) rotate($angle);
+	}
+}
+
+// The vertical arrows get short, thick arms instead of Reveal's long, thin ones,
+// wherever the controls are.
+#{$root} .controls {
+	:is(.navigate-up, .navigate-down) .controls-arrow {
+		&:before,
+		&:after {
+			top: 50%;
+			width: $arrow-short;
+			height: $arrow-short-thickness;
+		}
+
+		@include arrow-transform($angle);
+
+		&:hover {
+			@include arrow-transform($angle-hover);
+		}
+
+		&:active {
+			@include arrow-transform($angle-active);
+		}
+	}
+
+	// Reveal slides an arrow in from 10px away as it becomes enabled, and back out as
+	// it is disabled. That is a third of a large arrow, but more than all of a small
+	// one, so the small ones come from closer by. Only while disabled, so Reveal's
+	// own `.enabled` rule still puts them in place.
+	.navigate-up:not(.enabled) {
+		transform: translateY(calc(-1 * #{$nudge}));
+	}
+
+	.navigate-down:not(.enabled) {
+		transform: translateY(#{$nudge});
+	}
+}
+
+// The controls in their corner. Only Reveal's default layout: `edges` spreads the
+// arrows out over the slide, and there is nothing to fold together. The controls
+// themselves stay where Reveal puts them, at `--r-controls-spacing` from the corner,
+// so a deck without vertical slides looks exactly as it does without Smallcontrol,
+// and a deck with them has the same row, widened for the small vertical pair.
+#{$root} > .controls[data-controls-layout="bottom-right"] {
+	.navigate-left {
+		bottom: $row-bottom;
+	}
+
+	.navigate-right {
+		bottom: $row-bottom;
+		right: $right-right;
+	}
+
+	.navigate-up {
+		bottom: $up-bottom;
+		right: $pair-right;
+	}
+
+	.navigate-down {
+		bottom: $down-bottom;
+		right: $pair-right;
+		padding-bottom: 0;
+	}
+}
+
+// Room for the pair, only where there is one: a deck with vertical slides, and not
+// in linear navigation, which leaves them out of the row. Elsewhere the left arrow
+// stays in Reveal's row.
+#{$root}.has-vertical-slides:not([data-navigation-mode="linear"])
+	> .controls[data-controls-layout="bottom-right"]
+	.navigate-left {
+	right: $left-right;
+}
+
+// Growing with the deck, with `autoscale`. Reveal draws its controls at 10px whatever
+// size it draws the slides at, so on a big screen they end up small and far from
+// everything else. This follows Reveal's own `--slide-scale` instead, which it keeps
+// up to date as the window changes. Never smaller than Reveal's own size, and no
+// larger than `--smallcontrol-maxscale` times it. Every distance in the controls is
+// in ems, so the arrows, their spacing and the corner they sit in grow together.
+// Only in the corner: in a bar the controls already grow with the bar.
+$reveal-size: 10px;
+
+#{$root}.smallcontrol-autoscale > .controls {
+	font-size: clamp(
+		#{$reveal-size},
+		calc(#{$reveal-size} * var(--slide-scale, 1)),
+		calc(#{$reveal-size} * var(--smallcontrol-maxscale, 2))
+	);
+}
+
+// A deck with only vertical slides has no row, and Reveal stacks the arrows in a
+// column of their own. This weighs the same as that rule of Reveal's.
+#{$root}:not(.has-horizontal-slides) > .controls[data-controls-layout="bottom-right"] {
+	.navigate-up,
+	.navigate-down {
+		right: $column-right;
+	}
+}

@@ -1,0 +1,22 @@
+// Reveal's own stylesheet turns the controls black on a light slide and white on a
+// dark one, whatever the theme gave them. On a slide whose background contrasts the
+// theme, such as a white slide in a dark deck, Smallcontrol has them follow
+// `--c-theme-color` instead, which the toolkit keeps matched to the slide on screen.
+// The controls then take the same colour as the text on that slide, and as a
+// Simplemenu bar or Verticator does.
+//
+// The ordinary colour weighs the same as the theme's own `.reveal .controls`, so a
+// deck's own rule for that wins as easily as it did before. Only the inverted one
+// weighs more, as much as Reveal's `.has-light-background` rule, which it has to beat.
+$root: ".reveal:where(.smallcontrol)";
+
+#{$root} .controls {
+	color: var(--smallcontrol-color, var(--r-link-color, currentColor));
+}
+
+// The class is on the viewport: the body for a deck that has the page to itself,
+// and the deck's own element for an embedded one.
+.c-theme-inverted #{$root} .controls,
+#{$root}.c-theme-inverted .controls {
+	color: var(--smallcontrol-color-inverted, var(--c-theme-color, currentColor));
+}

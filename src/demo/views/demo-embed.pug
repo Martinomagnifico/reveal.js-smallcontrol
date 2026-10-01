@@ -1,0 +1,42 @@
+extends templates/layouts/_reveal-embed.pug
+
+append variables
+	- presentation.title = presentation.title + ": embedded"
+
+block slides
+	include slides/_slides-embed.pug
+
+block slidestwo
+	include slides/_slides-embed-plain.pug
+
+append styles
+	style.
+		body {background: var(--r-background-color)}
+
+//- Two decks on one page: only the first loads Smallcontrol, and only the first
+//- gets the small controls. The second keeps Reveal's own.
+block append scripts
+	if process.env.NODE_ENV === 'production'
+		script(src=`plugin/${plugin.name}/${plugin.name}.js`)
+		script.
+			const options = {
+				embedded: true, keyboardCondition: 'focused',
+				overview: false, controlsTutorial: false,
+				transition: "slide"
+			};
+			new Reveal(document.querySelector("#deck1"), { ...options, plugins: [ Smallcontrol ] }).initialize();
+			new Reveal(document.querySelector("#deck2"), options).initialize();
+	else
+		script(type="module").
+			import Smallcontrol from '@/plugin/js/index';
+			const options = {
+				embedded: true, keyboardCondition: 'focused',
+				overview: false, controlsTutorial: false,
+				transition: "slide"
+			};
+			new Reveal(document.querySelector("#deck1"), {
+				...options,
+				smallcontrol: { debug: true },
+				plugins: [ Smallcontrol ]
+			}).initialize();
+			new Reveal(document.querySelector("#deck2"), options).initialize();

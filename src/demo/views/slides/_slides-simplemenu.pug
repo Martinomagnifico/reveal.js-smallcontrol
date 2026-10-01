@@ -1,0 +1,39 @@
+section.center(data-name="Start")
+	h1 Smallcontrol
+	h3 in a Simplemenu bar
+
+section.center(data-name="Vertical")
+	section.center
+		h2 The controls moved
+		p They are in the bar now, on the right
+	section.center
+		p They take the colour of the bar
+	section.center
+		p And keep working as before
+
+section.center(data-name="Light" data-background-color="#fff")
+	h2 On a light slide
+	p The bar turns around, and the controls with it.
+
+section(data-name="Setup")
+	section
+		h4 A placeholder in the bar
+		p.small Put a #[code div] with the class #[code controls] in the bar, and Simplemenu moves Reveal’s controls into it. Smallcontrol does the rest.
+		pre
+			code.hljs.javascript(data-line-numbers).
+				Reveal.initialize({
+					simplemenu: {
+						barhtml: {
+							header: "&lt;nav class='menubar'&gt;"
+								+ "&lt;div class='padbox'&gt;&lt;/div&gt;"
+								+ "&lt;ul class='menu'&gt;&lt;/ul&gt;"
+								+ "&lt;div class='padbox'&gt;"
+								+ "&lt;div class='controls'&gt;&lt;/div&gt;"
+								+ "&lt;/div&gt;"
+								+ "&lt;/nav&gt;"
+						}
+					},
+					plugins: [ Simplemenu, Smallcontrol ]
+				});
+	section.center
+		h4 That’s it!

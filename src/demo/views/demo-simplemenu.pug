@@ -1,0 +1,47 @@
+extends templates/layouts/_reveal.pug
+
+append variables
+	- presentation.title = presentation.title + ": in a Simplemenu bar"
+
+block slides
+	include slides/_slides-simplemenu
+
+block beforeslides
+	+badge(plugin.name.toLowerCase(), 'bottom')
+
+//- A `div.controls` in the bar is where Simplemenu moves Reveal's own controls,
+//- the same way it does with the slide number. Smallcontrol restyles them there.
+block append scripts
+	+revealsrc("script", "dist/plugin/highlight.js")
+
+	if process.env.NODE_ENV === 'production'
+		script(src=`plugin/simplemenu/simplemenu.js`)
+	else
+		script(src=`node_modules/reveal.js-simplemenu/plugin/simplemenu/simplemenu.js`)
+
+	script.
+		const bar = "<nav class='menubar'>"
+			+ "<div class='padbox'></div>"
+			+ "<ul class='menu'></ul>"
+			+ "<div class='padbox'><div class='controls'></div></div>"
+			+ "</nav>";
+
+	if process.env.NODE_ENV === 'production'
+		script(src=`plugin/${plugin.name}/${plugin.name}.js`)
+		script.
+			Reveal.initialize({
+				transition: "slide",
+				hash: true,
+				simplemenu: { barhtml: { header: bar } },
+				plugins: [ Simplemenu, Smallcontrol, RevealHighlight ]
+			});
+	else
+		script(type="module").
+			import Smallcontrol from '@/plugin/js/index';
+			Reveal.initialize({
+				transition: "slide",
+				hash: true,
+				simplemenu: { barhtml: { header: bar } },
+				smallcontrol: { debug: true },
+				plugins: [ Simplemenu, Smallcontrol, RevealHighlight ]
+			});

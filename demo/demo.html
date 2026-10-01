@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Smallcontrol demo</title>
+    <meta name="author" content="Martijn De Jongh (Martino)">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="assets/css/demo.css">
+  </head>
+  <body>
+    <div class="reveal"><a class="github-corner" href="https://github.com/martinomagnifico/reveal.js-smallcontrol" target="blank" title="View source on GitHub">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+          <path fill="currentColor" d="M27.5 11.2a16.3 16.3 0 0 0-5.1 31.7c.8.2 1.1-.3 1.1-.7v-2.8c-4.5 1-5.5-2.2-5.5-2.2-.7-1.9-1.8-2.4-1.8-2.4-1.5-1 .1-1 .1-1 1.6.1 2.5 1.7 2.5 1.7 1.5 2.5 3.8 1.8 4.7 1.4.2-1 .6-1.8 1-2.2-3.5-.4-7.3-1.8-7.3-8 0-1.8.6-3.3 1.6-4.4-.1-.5-.7-2.1.2-4.4 0 0 1.4-.4 4.5 1.7a15.6 15.6 0 0 1 8.1 0c3.1-2 4.5-1.7 4.5-1.7.9 2.3.3 4 .2 4.4 1 1 1.6 2.6 1.6 4.3 0 6.3-3.8 7.7-7.4 8 .6.6 1.1 1.6 1.1 3v4.6c0 .4.3.9 1.1.7a16.3 16.3 0 0 0-5.2-31.7"></path>
+        </svg></a>
+      <div class="slides">
+        <section class="center">
+          <h1>Smallcontrol</h1>
+          <h3>for Reveal.js</h3>
+        </section>
+        <section class="center">
+          <section class="center">
+            <h2>What does it do?</h2>
+          </section>
+          <section class="center">
+            <p>Smallcontrol makes the controls (the navigation arrows in the corner there) smaller. Just the vertical ones.</p>
+          </section>
+          <section class="center">
+            <p>Like this</p>
+          </section>
+        </section>
+        <section class="center" data-background-color="#fff">
+          <h2>On light slides too</h2>
+          <p>As you can see...</p>
+        </section>
+        <section>
+          <section>
+            <h2>Options</h2>
+            <ul>
+              <li>color</li>
+              <li>inversecolor</li>
+              <li>autoscale</li>
+              <li>maxscale</li>
+              <li>cssautoload</li>
+              <li>csspath</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Colors in Reveal</h3>
+            <p class="small">Standard Reveal themes give the arrows the same color that it uses for links. In this theme it is very blue.</p>
+            <p class="small">Reveal also defines what color the controls should be on slides where the user has set another background color: If that background color is very dark, the controls become white, and if it is very light, the controls become black.</p>
+          </section>
+          <section>
+            <h3>Colors in Smallcontrol</h3>
+            <p class="small">Smallcontrol keeps the color your theme gives the arrows, the color of its links.</p>
+            <p class="small">Only on slides that contrast the theme does it do something different: there the arrows get the color of the text on that slide, instead of plain black or white, like Reveal normally does. For an example, see <a href="#/2">light slide</a> in this deck.</p>
+          </section>
+          <section>
+            <h3>Your own colors</h3>
+            <p class="small">If you still want other colors, set them for regular slides and/or for slides that contrast the theme:</p>
+            <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+	//...
+	smallcontrol: {
+		color: 'orange',
+		inversecolor: 'darkred'
+	},
+	plugins: [ Smallcontrol ]
+})
+</code></pre>
+          </section>
+          <section>
+            <h3>Scaling</h3>
+            <p class="small">Reveal draws its controls at the same size, however large it draws the slides. On a big screen they end up small and far away.</p>
+            <p class="small">With <code>autoscale</code>, they grow along with the slides, up to twice their size, or what you set with <code>maxscale</code>. This deck has it on: make the window larger to see it.</p>
+            <pre><code class="hljs javascript" data-line-numbers>Reveal.initialize({
+	//...
+	smallcontrol: {
+		autoscale: true,
+		maxscale: 2
+	},
+	plugins: [ Smallcontrol ]
+})
+</code></pre>
+          </section>
+          <section>
+            <h3>The stylesheet</h3>
+            <p class="small">Smallcontrol loads its own stylesheet. If you import it yourself, set <code>csspath: false</code>, or point <code>csspath</code> at your own file.</p>
+            <pre><code class="hljs javascript" data-line-numbers>import Smallcontrol from 'reveal.js-smallcontrol';
+import 'reveal.js-smallcontrol/smallcontrol.css';
+</code></pre>
+          </section>
+          <section class="center">
+            <h4>That’s it!</h4>
+          </section>
+        </section>
+      </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="dist/plugin/highlight.js"></script>
+    <script src="plugin/smallcontrol/smallcontrol.js"></script>
+    <script>
+      Reveal.initialize({
+      	transition: "slide",
+      	hash: true,
+      	smallcontrol: {
+      		autoscale: true
+      	},
+      	plugins: [ Smallcontrol, RevealHighlight ]
+      });
+    </script>
+  </body>
+</html>

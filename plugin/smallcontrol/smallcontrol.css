@@ -1,0 +1,21 @@
+ /*****************************************************************
+ *
+ * reveal.js-smallcontrol for Reveal.js 
+ * Version 1.1.0
+ * 
+ * @link
+ * https://github.com/martinomagnifico/reveal.js-smallcontrol
+ * 
+ * @author: Martijn De Jongh (Martino), martijn.de.jongh@gmail.com
+ * https://github.com/martinomagnifico
+ *
+ * @license 
+ * MIT
+ * 
+ * Copyright (C) 2026 Martijn De Jongh (Martino)
+ *
+ ******************************************************************/
+
+
+.reveal:where(.smallcontrol) .controls :is(.navigate-up,.navigate-down) .controls-arrow:before,.reveal:where(.smallcontrol) .controls :is(.navigate-up,.navigate-down) .controls-arrow:after{width:1.1em;height:.4em;top:50%}.reveal:where(.smallcontrol) .controls :is(.navigate-up,.navigate-down) .controls-arrow:before{transform:translateY(-50%)translate(1.8em)rotate(-45deg)}.reveal:where(.smallcontrol) .controls :is(.navigate-up,.navigate-down) .controls-arrow:after{transform:translateY(-50%)translate(1.8em)rotate(45deg)}.reveal:where(.smallcontrol) .controls :is(.navigate-up,.navigate-down) .controls-arrow:hover:before{transform:translateY(-50%)translate(1.8em)rotate(-40deg)}.reveal:where(.smallcontrol) .controls :is(.navigate-up,.navigate-down) .controls-arrow:hover:after{transform:translateY(-50%)translate(1.8em)rotate(40deg)}.reveal:where(.smallcontrol) .controls :is(.navigate-up,.navigate-down) .controls-arrow:active:before{transform:translateY(-50%)translate(1.8em)rotate(-36deg)}.reveal:where(.smallcontrol) .controls :is(.navigate-up,.navigate-down) .controls-arrow:active:after{transform:translateY(-50%)translate(1.8em)rotate(36deg)}.reveal:where(.smallcontrol) .controls .navigate-up:not(.enabled){transform:translateY(calc(-1 * var(--smallcontrol-nudge,.5em)))}.reveal:where(.smallcontrol) .controls .navigate-down:not(.enabled){transform:translateY(var(--smallcontrol-nudge,.5em))}.reveal:where(.smallcontrol)>.controls[data-controls-layout=bottom-right] .navigate-left{bottom:1.4em}.reveal:where(.smallcontrol)>.controls[data-controls-layout=bottom-right] .navigate-right{bottom:1.4em;right:.5em}.reveal:where(.smallcontrol)>.controls[data-controls-layout=bottom-right] .navigate-up{bottom:3.2em;right:3.7em}.reveal:where(.smallcontrol)>.controls[data-controls-layout=bottom-right] .navigate-down{padding-bottom:0;bottom:-.4em;right:3.7em}.reveal:where(.smallcontrol).has-vertical-slides:not([data-navigation-mode=linear])>.controls[data-controls-layout=bottom-right] .navigate-left{right:6.9em}.reveal:where(.smallcontrol).smallcontrol-autoscale>.controls{font-size:clamp(10px, 10px * var(--slide-scale,1), 10px * var(--smallcontrol-maxscale,2))}.reveal:where(.smallcontrol):not(.has-horizontal-slides)>.controls[data-controls-layout=bottom-right] .navigate-up,.reveal:where(.smallcontrol):not(.has-horizontal-slides)>.controls[data-controls-layout=bottom-right] .navigate-down{right:.15em}.reveal:where(.smallcontrol) .controls{color:var(--smallcontrol-color,var(--r-link-color,currentColor))}.c-theme-inverted .reveal:where(.smallcontrol) .controls,.reveal:where(.smallcontrol).c-theme-inverted .controls{color:var(--smallcontrol-color-inverted,var(--c-theme-color,currentColor))}.reveal:where(.smallcontrol) :not(.reveal)>.controls{font-size:var(--smallcontrol-bar-size,.3em);color:currentColor;pointer-events:auto;z-index:auto;width:10em;height:7.2em;margin:-1.6em -.5em -1.4em;position:relative;inset:auto}.reveal:where(.smallcontrol) :not(.reveal)>.controls button{margin:0;padding:0;transition:opacity .2s,transform .2s;inset:auto}.reveal:where(.smallcontrol) :not(.reveal)>.controls .controls-arrow:before,.reveal:where(.smallcontrol) :not(.reveal)>.controls .controls-arrow:after{transition:transform .15s}.reveal:where(.smallcontrol) :not(.reveal)>.controls .navigate-left{top:1.8em;left:0}.reveal:where(.smallcontrol) :not(.reveal)>.controls .navigate-right{top:1.8em;left:6.4em}.reveal:where(.smallcontrol) :not(.reveal)>.controls .navigate-up{top:0;left:3.2em}.reveal:where(.smallcontrol) :not(.reveal)>.controls .navigate-down{top:3.6em;left:3.2em}:root{--cssimported-smallcontrol:true}
+/*$vite$:1*/

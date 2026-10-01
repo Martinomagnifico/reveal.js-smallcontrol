@@ -1,0 +1,70 @@
+// Controls that are not where Reveal put them, such as in a Simplemenu bar. A
+// `div` with the class `controls` in a bar is where Simplemenu moves Reveal's own
+// controls, the same way it does with the slide number. They stop being an overlay
+// in the corner and become a small block of their own, laid out like the corner
+// version: the vertical pair in the middle, between the left and right arrows.
+//
+// They take the colour of what they sit in, so in a bar they are the colour of
+// that bar, including on a slide that contrasts the theme.
+//
+// Every rule here weighs the same as the deck-wide ones before it and as Reveal's
+// layout rules, and wins from them by coming last.
+$root: ".reveal:where(.smallcontrol)";
+$scale: var(--smallcontrol-bar-size, 0.3em);
+
+#{$root} :not(.reveal) > .controls {
+	position: relative;
+	inset: auto;
+	// The arrows are drawn in ems, so this sets the size of all of them. It is
+	// relative to the font of the bar, so the controls grow with the bar.
+	font-size: $scale;
+	// The same box the four buttons span in the corner, so they keep exactly the
+	// positions they have there. The boxes are larger than the arrows drawn in them,
+	// so the margins trim the block down to the arrows themselves.
+	width: 10em;
+	height: 7.2em;
+	margin: -1.6em -0.5em -1.4em;
+	color: currentColor;
+	pointer-events: auto;
+	z-index: auto;
+
+	button {
+		inset: auto;
+		margin: 0;
+		padding: 0;
+		// No colour transition of their own: the bar's colour is what changes, and the
+		// arrows inherit it frame by frame. A transition here would chase a colour that
+		// is itself moving, and run ahead of the bar or behind it depending on the
+		// browser. The fade and the nudge Reveal gives an arrow stay.
+		transition:
+			opacity 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	// The same for the strokes, which Reveal fades over 0.8s. Only the turn on hover
+	// stays.
+	.controls-arrow::before,
+	.controls-arrow::after {
+		transition: transform 0.15s ease;
+	}
+
+	.navigate-left {
+		left: 0;
+		top: 1.8em;
+	}
+
+	.navigate-right {
+		left: 6.4em;
+		top: 1.8em;
+	}
+
+	.navigate-up {
+		left: 3.2em;
+		top: 0;
+	}
+
+	.navigate-down {
+		left: 3.2em;
+		top: 3.6em;
+	}
+}
